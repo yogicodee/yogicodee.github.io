@@ -1,0 +1,298 @@
+<?php ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Yogi Ilham</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:#f3f3f3;
+  color:#111;
+  overflow-x:hidden;
+}
+
+/* ambient */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-30%;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,170,60,.18), transparent 50%),
+    radial-gradient(circle at 80% 30%, rgba(255,60,60,.15), transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(80,200,200,.15), transparent 50%);
+  filter:blur(120px);
+  z-index:-1;
+}
+
+/* ===== CONTAINER SAMA SEMUA HALAMAN ===== */
+.container{
+  max-width:1180px;
+  margin:auto;
+  padding:0 40px;
+}
+
+/* ===== HEADER GLOBAL SAMA BLOG ===== */
+.site-header{
+  height:72px;
+  display:flex;
+  align-items:center;
+}
+
+.header-inner{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:600;
+}
+
+.dot{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#f5a623;
+}
+
+.nav{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  align-items:center;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#111;
+  display:inline-block;
+  padding:6px 0;
+  position:relative;
+  transition:transform .15s ease;
+}
+
+.nav a:hover{
+  transform:translateY(-2px);
+}
+
+.nav a.active{
+  color:#f5a623;
+  font-weight:700;
+}
+
+.nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-6px;
+  height:3px;
+  background:#f5a623;
+  border-radius:3px;
+}
+
+/* ===== LAYOUT ===== */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  margin:100px 0;
+}
+
+/* LEFT */
+.title{
+  font-size:56px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.desc{
+  color:#555;
+  line-height:1.7;
+  margin-bottom:30px;
+  max-width:420px;
+}
+
+.info{
+  margin-bottom:20px;
+  font-size:14px;
+}
+
+.social{
+  display:flex;
+  gap:14px;
+  margin-top:20px;
+}
+
+.social a{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  color:#111;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.social a:hover{
+  transform:translateY(-3px);
+}
+
+/* FORM */
+.form{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(14px);
+  border-radius:20px;
+  padding:40px;
+  box-shadow:0 30px 80px rgba(0,0,0,.12);
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+input,textarea{
+  width:100%;
+  border:none;
+  outline:none;
+  padding:14px 16px;
+  border-radius:10px;
+  background:#f1f1f1;
+  font-family:inherit;
+  font-size:14px;
+  transition:.3s;
+}
+
+input:focus,textarea:focus{
+  background:#fff;
+  box-shadow:0 0 0 2px rgba(245,166,35,.4);
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.btn{
+  margin-top:10px;
+  padding:12px 24px;
+  border:none;
+  border-radius:26px;
+  background:linear-gradient(135deg,#f5a623,#ff7a18);
+  color:#fff;
+  font-weight:500;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid #ddd;
+  padding:30px 0;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.container{padding:0 24px}
+.contact{grid-template-columns:1fr;gap:50px}
+.title{font-size:40px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="dot"></div>
+      Yogi Ilham
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+  </div>
+</header>
+
+<div class="contact">
+
+<!-- LEFT -->
+<div>
+<div class="title">Contact</div>
+
+<div class="desc">
+Interested in working together, building AI systems, or developing digital solutions?  
+Feel free to reach out.
+</div>
+
+<div class="info"><strong>Email</strong><br>yogiilham003@gmail.com</div>
+<div class="info"><strong>Phone</strong><br>+62 858 3785 7570</div>
+
+<div class="social">
+<a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://github.com/AhmadYogiKulumulilham1855201067" target="_blank"><i class="fab fa-github"></i></a>
+<a href="https://www.instagram.com/yogi_ilham02/" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+
+<!-- FORM -->
+<div class="form">
+<form>
+<div class="form-group">
+<input type="text" placeholder="Your Name">
+</div>
+
+<div class="form-group">
+<input type="email" placeholder="Email">
+</div>
+
+<div class="form-group">
+<textarea placeholder="Message"></textarea>
+</div>
+
+<button class="btn">Send Message</button>
+</form>
+</div>
+
+</div>
+
+<footer>
+<div>Email<br>yogiilham003@gmail.com</div>
+<div>© 2026 Yogi Ilham</div>
+</footer>
+
+</div>
+
+</body>
+</html>

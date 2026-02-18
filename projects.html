@@ -1,0 +1,285 @@
+<?php ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects - Yogi Ilham</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  background:#f3f3f3;
+  color:#111;
+}
+
+/* ambient glow */
+body::before{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255,180,80,.18), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,80,80,.12), transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(80,200,200,.18), transparent 50%);
+  filter:blur(80px);
+  z-index:-1;
+}
+
+/* ===== CONTAINER SAMA SEMUA ===== */
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 40px;
+}
+
+/* ===== HEADER GLOBAL SAMA HALAMAN LAIN ===== */
+.site-header{
+  height:72px;
+  display:flex;
+  align-items:center;
+}
+
+.header-inner{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:600;
+  font-size:18px;
+}
+
+.dot{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#f5a623;
+}
+
+.nav{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+  align-items:center;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#111;
+  display:inline-block;
+  padding:6px 0;
+  position:relative;
+  transition:transform .15s ease;
+}
+
+.nav a:hover{
+  transform:translateY(-2px);
+}
+
+.nav a.active{
+  color:#f5a623;
+  font-weight:700;
+}
+
+.nav a.active::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:-6px;
+  height:3px;
+  background:#f5a623;
+  border-radius:3px;
+}
+
+/* ===== TITLE ===== */
+.page-title{
+  font-size:48px;
+  font-weight:800;
+  margin:70px 0 50px;
+}
+
+/* ===== GRID ===== */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 48px rgba(0,0,0,.12);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.card-body{
+  padding:18px 18px 20px;
+}
+
+.card-title{
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.card-desc{
+  font-size:14px;
+  color:#444;
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:14px;
+}
+
+.tag{
+  font-size:11px;
+  background:#f1f1f1;
+  padding:4px 8px;
+  border-radius:6px;
+}
+
+.btn{
+  display:inline-block;
+  font-size:13px;
+  padding:8px 14px;
+  border-radius:20px;
+  text-decoration:none;
+  background:linear-gradient(135deg,#f5a623,#ff7a18);
+  color:#fff;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  border-top:1px solid #ddd;
+  margin-top:80px;
+  padding:40px 0;
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+}
+
+.social a{
+  text-decoration:none;
+  color:inherit;
+  margin-right:12px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+.container{padding:0 24px}
+.projects{grid-template-columns:1fr}
+footer{flex-direction:column;gap:20px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="dot"></div>
+      Yogi Ilham
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+  </div>
+</header>
+
+<div class="page-title">Projects</div>
+
+<div class="projects">
+
+  <!-- PROJECT 1 -->
+  <div class="card">
+    <img src="project2.jpg">
+    <div class="card-body">
+      <div class="card-title">Smart Greenhouse IoT</div>
+      <div class="card-desc">
+        IoT-based greenhouse automation with sensors and environmental monitoring system.
+      </div>
+      <div class="tags">
+        <div class="tag">IoT</div>
+        <div class="tag">Sensors</div>
+        <div class="tag">Automation</div>
+      </div>
+      <a class="btn" href="projecthasil.html">View Project</a>
+    </div>
+  </div>
+
+  <!-- PROJECT 2 -->
+  <div class="card">
+    <img src="project1.png">
+    <div class="card-body">
+      <div class="card-title">Web PPDB & LMS</div>
+      <div class="card-desc">
+        Student admission and learning management web platform with dashboard.
+      </div>
+      <div class="tags">
+        <div class="tag">PHP</div>
+        <div class="tag">SQL</div>
+        <div class="tag">Web</div>
+      </div>
+      <a class="btn" href="projecthasil2.html">View Project</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Phone<br>+6285837857570</div>
+  <div>Email<br>yogiilham003@gmail.com</div>
+  <div class="social">
+    Follow Me<br>
+    <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/AhmadYogiKulumulilham1855201067" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://instagram.com/yogi_ilham02" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div>© 2026 By Yogi Ilham</div>
+</footer>
+
+</div>
+</body>
+</html>
