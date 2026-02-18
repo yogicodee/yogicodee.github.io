@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web PPDB & LMS — Yogi Ilham</title>
+<title>PPDB - Yogi Ilham</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -16,28 +16,35 @@ body{
   color:#111;
 }
 
-/* ambient background */
+/* ambient glow sama projects */
 body::before{
   content:"";
   position:fixed;
-  inset:-30%;
+  inset:-20%;
   background:
-    radial-gradient(circle at 20% 20%, rgba(255,170,60,.18), transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(255,60,60,.15), transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(80,200,200,.15), transparent 50%);
-  filter:blur(120px);
+    radial-gradient(circle at 20% 30%, rgba(255,180,80,.18), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,80,80,.12), transparent 50%),
+    radial-gradient(circle at 60% 80%, rgba(80,200,200,.18), transparent 50%);
+  filter:blur(80px);
   z-index:-1;
 }
 
+/* CONTAINER SAMA */
 .container{
-  max-width:1100px;
-  margin:auto;
+  max-width:1180px;
+  margin:0 auto;
   padding:0 40px;
 }
 
-/* ===== HEADER ===== */
-header{
+/* HEADER SAMA PROJECTS */
+.site-header{
   height:72px;
+  display:flex;
+  align-items:center;
+}
+
+.header-inner{
+  width:100%;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -48,6 +55,7 @@ header{
   align-items:center;
   gap:12px;
   font-weight:600;
+  font-size:18px;
 }
 
 .dot{
@@ -57,158 +65,159 @@ header{
   background:#f5a623;
 }
 
-nav{
+.nav{
   display:flex;
-  gap:16px;
+  gap:22px;
   font-size:14px;
+  align-items:center;
 }
 
-nav a{
+.nav a{
   text-decoration:none;
   color:#111;
-  padding:6px 12px;
+  display:inline-block;
+  padding:6px 0;
   position:relative;
-  transition:.2s;
+  transition:transform .15s ease;
 }
 
-nav a:hover{
+.nav a:hover{
   transform:translateY(-2px);
 }
 
-nav a.active{
+.nav a.active{
   color:#f5a623;
   font-weight:700;
 }
 
-nav a.active::after{
+.nav a.active::after{
   content:"";
   position:absolute;
   left:0;
   right:0;
   bottom:-6px;
-  height:4px;
+  height:3px;
   background:#f5a623;
   border-radius:3px;
 }
 
-/* ===== HERO ===== */
-.hero{
-  margin-top:60px;
-}
-
-.title{
-  font-size:52px;
+/* TITLE */
+.page-title{
+  font-size:48px;
   font-weight:800;
-  margin-bottom:10px;
+  margin:70px 0 40px;
 }
 
-.subtitle{
-  color:#555;
-  max-width:720px;
+/* HERO PROJECT */
+.project-hero{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:50px;
+  align-items:center;
+  margin-bottom:60px;
+}
+
+.project-hero img{
+  width:100%;
+  border-radius:18px;
+  box-shadow:0 30px 80px rgba(0,0,0,.15);
+}
+
+.project-title{
+  font-size:32px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+
+.project-desc{
+  color:#444;
   line-height:1.7;
-}
-
-.tags{
-  margin-top:18px;
-  display:flex;
-  gap:10px;
-}
-
-.tag{
-  background:#eee;
-  padding:6px 12px;
-  border-radius:8px;
-  font-size:12px;
-}
-
-/* ===== SECTIONS ===== */
-.section{
-  margin-top:70px;
-}
-
-.section h2{
-  font-size:28px;
   margin-bottom:16px;
 }
 
-.section p{
-  color:#555;
-  line-height:1.7;
-  max-width:720px;
-}
-
-/* ===== METRICS ===== */
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:24px;
-}
-
-.metric{
-  background:#fff;
-  border-radius:14px;
-  padding:24px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.metric-value{
-  font-size:34px;
-  font-weight:800;
-  color:#f5a623;
-}
-
-.metric-label{
-  color:#666;
-  margin-top:6px;
-}
-
-/* ===== GALLERY ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:24px;
-}
-
-.gallery img{
-  width:100%;
-  border-radius:16px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
-}
-
-/* ===== CTA ===== */
-.cta{
-  margin-top:60px;
-  background:#fff;
-  border-radius:20px;
-  padding:26px 30px;
+.tags{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 14px 40px rgba(0,0,0,.1);
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.tag{
+  font-size:12px;
+  background:#f1f1f1;
+  padding:5px 10px;
+  border-radius:6px;
 }
 
 .btn{
-  background:#f5a623;
-  color:#fff;
-  padding:12px 22px;
-  border-radius:999px;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:24px;
   text-decoration:none;
-  font-weight:600;
-  transition:.2s;
+  background:linear-gradient(135deg,#f5a623,#ff7a18);
+  color:#fff;
+  font-size:14px;
+  transition:.25s;
 }
 
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 18px rgba(0,0,0,.2);
 }
 
-/* ===== FOOTER ===== */
+/* GALLERY */
+.gallery{
+  margin-top:40px;
+}
+
+.gallery-title{
+  font-size:26px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.gallery-grid img{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 16px 40px rgba(0,0,0,.12);
+}
+
+/* CTA */
+.cta{
+  margin:60px 0;
+  background:#fff;
+  border-radius:20px;
+  padding:28px 34px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 14px 36px rgba(0,0,0,.08);
+}
+
+.cta-text{
+  font-weight:600;
+  font-size:18px;
+}
+
+.cta-btn{
+  padding:12px 22px;
+  border-radius:26px;
+  background:linear-gradient(135deg,#f5a623,#ff7a18);
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* FOOTER SAMA PROJECTS */
 footer{
   border-top:1px solid #ddd;
   margin-top:80px;
-  padding:30px 0;
+  padding:40px 0;
   display:flex;
   justify-content:space-between;
   font-size:13px;
@@ -216,135 +225,93 @@ footer{
 
 .social a{
   text-decoration:none;
-  color:#111;
-  margin-right:10px;
+  color:inherit;
+  margin-right:12px;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:900px){
-
 .container{padding:0 24px}
-
-.metrics{grid-template-columns:1fr}
-.gallery{grid-template-columns:1fr}
-
-.title{font-size:40px}
-
-.cta{
-  flex-direction:column;
-  gap:14px;
-  align-items:flex-start;
-}
-
-footer{
-  flex-direction:column;
-  gap:14px;
-}
-
+.project-hero{grid-template-columns:1fr}
+.gallery-grid{grid-template-columns:1fr}
+footer{flex-direction:column;gap:20px}
 }
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-<header>
-  <div class="brand">
-    <div class="dot"></div>
-    Yogi Ilham
-  </div>
+<header class="site-header">
+  <div class="header-inner">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="resume.html">Resume</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="contact.html">Contact</a>
-    <a href="blog.html">Blog</a>
-  </nav>
+    <div class="brand">
+      <div class="dot"></div>
+      Yogi Ilham
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="resume.html">Resume</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+
+  </div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="title">Web PPDB & LMS</div>
-  <div class="subtitle">
-    End-to-end digital platform for student admission, academic administration, and online learning delivery, enabling schools to manage enrollment and education processes efficiently.
-  </div>
+<div class="page-title">Web PPDB</div>
 
-  <div class="tags">
-    <div class="tag">Codeigniter</div>
-    <div class="tag">PHP</div>
-    <div class="tag">SQL</div>
-    <div class="tag">Web System</div>
-  </div>
-</div>
+<div class="project-hero">
+  <img src="project1.png">
 
-<!-- PROBLEM -->
-<div class="section">
-  <h2>Problem</h2>
-  <p>
-    Schools handled student admissions and academic administration manually, leading to data redundancy, inefficient processing, and limited access to learning materials for students and teachers.
-  </p>
-</div>
-
-<!-- SOLUTION -->
-<div class="section">
-  <h2>Solution</h2>
-  <p>
-    Developed a web-based PPDB and Learning Management System that enables online student registration, centralized academic data management, course content delivery, and administrative monitoring through an integrated dashboard.
-  </p>
-</div>
-
-<!-- IMPACT -->
-<div class="section">
-  <h2>Impact</h2>
-
-  <div class="metrics">
-    <div class="metric">
-      <div class="metric-value">100%</div>
-      <div class="metric-label">Digital admission process</div>
+  <div>
+    <div class="project-title">Student Admission</div>
+    <div class="project-desc">
+      A web-based PPDB (student admission) and learning management system
+      designed to streamline registration, document submission, and academic
+      monitoring. The platform provides dashboards for administrators and
+      students to manage admissions and learning activities efficiently.
     </div>
 
-    <div class="metric">
-      <div class="metric-value">↓50%</div>
-      <div class="metric-label">Administrative workload</div>
+    <div class="tags">
+      <div class="tag">PHP</div>
+      <div class="tag">Codeigniter</div>
+      <div class="tag">MySQL</div>
+      <div class="tag">Dashboard</div>
+      <div class="tag">Education</div>
     </div>
 
-    <div class="metric">
-      <div class="metric-value">24/7</div>
-      <div class="metric-label">Student & teacher access</div>
-    </div>
+  <!--  <a class="btn" href="#">Visit System</a>-->
   </div>
 </div>
 
-<!-- GALLERY -->
-<div class="section">
-  <h2>System Interface</h2>
+<div class="gallery">
+  <div class="gallery-title">System Gallery</div>
 
-  <div class="gallery">
-    <img src="project1.png">
+  <div class="gallery-grid">
     <img src="ppdb2.png">
     <img src="ppdb3.png">
+    <img src="ppdb4.png">
   </div>
 </div>
 
-<!-- CTA -->
 <div class="cta">
-  <div><strong>Need a similar school or LMS system?</strong></div>
-  <a class="btn" href="contact.html">Start Project</a>
+  <div class="cta-text">Interested in similar education systems?</div>
+  <a class="cta-btn" href="contact.html">Start Project</a>
 </div>
 
 <footer>
+  <div>Phone<br>+6285837857570</div>
   <div>Email<br>yogiilham003@gmail.com</div>
-
   <div class="social">
     Follow Me<br>
     <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/AhmadYogiKulumulilham1855201067" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://github.com/yogicodee/" target="_blank"><i class="fab fa-github"></i></a>
     <a href="https://instagram.com/yogi_ilham02" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
-
-  <div>© 2026 Yogi Ilham</div>
+  <div>© 2026 By Yogi Ilham</div>
 </footer>
 
 </div>
