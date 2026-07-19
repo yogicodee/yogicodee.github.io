@@ -269,6 +269,7 @@ body{
 
 /* ---------- ABOUT ---------- */
 .about-grid{display:grid;grid-template-columns:0.95fr 1.2fr;gap:60px;align-items:start}
+.about-grid > div:last-child{display:flex;flex-direction:column;justify-content:space-between;min-height:720px}
 .about-visual{position:relative;overflow:hidden;border-radius:var(--radius)}
 .about-visual img{border-radius:var(--radius);box-shadow:var(--shadow);width:100%;
   aspect-ratio:4/5;object-fit:cover}
