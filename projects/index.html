@@ -1,304 +1,154 @@
-<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects - Yogi Ilham</title>
+<title>Projects — Yogi Ilham</title>
+<meta name="description" content="Projects by Yogi Ilham — fullstack web, IoT automation and applied AI / computer vision.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<style>
-body{
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  background:#f3f3f3;
-  color:#111;
-}
-
-/* ambient glow */
-body::before{
-  content:"";
-  position:fixed;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,180,80,.18), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,80,80,.12), transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(80,200,200,.18), transparent 50%);
-  filter:blur(80px);
-  z-index:-1;
-}
-
-/* ===== CONTAINER SAMA SEMUA ===== */
-.container{
-  max-width:1180px;
-  margin:0 auto;
-  padding:0 40px;
-}
-
-/* ===== HEADER GLOBAL SAMA HALAMAN LAIN ===== */
-.site-header{
-  height:72px;
-  display:flex;
-  align-items:center;
-}
-
-.header-inner{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:600;
-  font-size:18px;
-}
-
-.dot{
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#f5a623;
-}
-
-.nav{
-  display:flex;
-  gap:22px;
-  font-size:14px;
-  align-items:center;
-}
-
-.nav a{
-  text-decoration:none;
-  color:#111;
-  display:inline-block;
-  padding:6px 0;
-  position:relative;
-  transition:transform .15s ease;
-}
-
-.nav a:hover{
-  transform:translateY(-2px);
-}
-
-.nav a.active{
-  color:#f5a623;
-  font-weight:700;
-}
-
-.nav a.active::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-6px;
-  height:3px;
-  background:#f5a623;
-  border-radius:3px;
-}
-
-/* ===== TITLE ===== */
-.page-title{
-  font-size:48px;
-  font-weight:800;
-  margin:70px 0 50px;
-}
-
-/* ===== GRID ===== */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:30px;
-}
-
-/* ===== CARD ===== */
-.card{
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 12px 28px rgba(0,0,0,.08);
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 22px 48px rgba(0,0,0,.12);
-}
-
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:18px 18px 20px;
-}
-
-.card-title{
-  font-weight:600;
-  margin-bottom:8px;
-}
-
-.card-desc{
-  font-size:14px;
-  color:#444;
-  line-height:1.6;
-  margin-bottom:12px;
-}
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:6px;
-  margin-bottom:14px;
-}
-
-.tag{
-  font-size:11px;
-  background:#f1f1f1;
-  padding:4px 8px;
-  border-radius:6px;
-}
-
-.btn{
-  display:inline-block;
-  font-size:13px;
-  padding:8px 14px;
-  border-radius:20px;
-  text-decoration:none;
-  background:linear-gradient(135deg,#f5a623,#ff7a18);
-  color:#fff;
-  transition:.25s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-/* ===== FOOTER ===== */
-footer{
-  border-top:1px solid #ddd;
-  margin-top:80px;
-  padding:40px 0;
-  display:flex;
-  justify-content:space-between;
-  font-size:13px;
-}
-
-.social a{
-  text-decoration:none;
-  color:inherit;
-  margin-right:12px;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-.container{padding:0 24px}
-.projects{grid-template-columns:1fr}
-footer{flex-direction:column;gap:20px}
-}
-</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%230a0b10%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2762%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23f5a623%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 
-<body>
+<body id="top">
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+<nav class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><span class="dot"></span>Yogi</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/projects" class="active">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle type="button"></button>
+      <button class="nav-toggle" data-menu-toggle type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-overlay" data-menu-overlay></div>
+<aside class="mobile-menu" data-menu>
+  <button class="menu-close" data-menu-close aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="/">Home</a>
+  <a href="/resume">Resume</a>
+  <a href="/projects">Projects</a>
+  <a href="/contact">Contact</a>
+  <a href="/blog">Blog</a>
+</aside>
+
 <div class="container">
-
-<header class="site-header">
-  <div class="header-inner">
-
-    <div class="brand">
-      <div class="dot"></div>
-      Yogi
+  <section class="section" style="padding-top:70px">
+    <div class="section-head page-enter">
+      <span class="eyebrow"><i class="fas fa-folder-open"></i> Portfolio</span>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-lead">Selected work across fullstack web development, IoT automation and applied AI / computer vision.</p>
     </div>
 
-    <nav class="nav">
-      <a href="./">Home</a>
-      <a href="/resume">Resume</a>
-      <a href="/projects" class="active">Projects</a>
-      <a href="/contact">Contact</a>
-      <a href="/blog">Blog</a>
-    </nav>
-
-  </div>
-</header>
-
-<div class="page-title">Projects</div>
-
-<div class="projects">
-
-  <!-- PROJECT 1 -->
-  <div class="card">
-    <img src="project2.jpg">
-    <div class="card-body">
-      <div class="card-title">Smart Greenhouse IoT</div>
-      <div class="card-desc">
-        IoT-based greenhouse automation with sensors and environmental monitoring system.
-      </div>
-      <div class="tags">
-        <div class="tag">IoT</div>
-        <div class="tag">Sensors</div>
-        <div class="tag">Automation</div>
-      </div>
-      <a class="btn" href="/projects/projecthasil1">View Project</a>
+    <div class="filter-bar" data-filter-bar data-reveal>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="ai">AI / ML</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
     </div>
-  </div>
 
-  <!-- PROJECT 2 -->
-  <div class="card">
-    <img src="project1.png">
-    <div class="card-body">
-      <div class="card-title">Web PPDB</div>
-      <div class="card-desc">
-        Student admission and learning management web platform with dashboard.
-      </div>
-      <div class="tags">
-        <div class="tag">PHP</div>
-        <div class="tag">Codeigniter</div>
-        <div class="tag">SQL</div>
-        <div class="tag">Web</div>
-      </div>
-      <a class="btn" href="/projects/projecthasil2">View Project</a>
+    <div class="projects-grid" data-stagger>
+      <article class="pcard" data-cat="ai" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">AI / ML</span>
+          <img src="/project3.jpg" alt="AI Object Detection" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">AI Object Detection</h3>
+          <p class="pcard-desc">Real-time detection of humans and wildlife from aerial imagery using YOLOv11, served through a FastAPI + React interface.</p>
+          <div class="pcard-tags"><span>Python</span><span>YOLOv11</span><span>FastAPI</span><span>React</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil3"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard" data-cat="fullstack web" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">Fullstack</span>
+          <img src="/project1.png" alt="Web PPDB admission system" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Web PPDB &amp; LMS</h3>
+          <p class="pcard-desc">Student admission and learning-management platform with role-based dashboards for administrators and students.</p>
+          <div class="pcard-tags"><span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>Dashboard</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil2"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pcard" data-cat="iot" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">IoT</span>
+          <img src="/project2.jpg" alt="Smart Greenhouse IoT" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Smart Greenhouse IoT</h3>
+          <p class="pcard-desc">IoT automation for monitoring and controlling greenhouse conditions in real time with sensors and a live dashboard.</p>
+          <div class="pcard-tags"><span>IoT</span><span>Sensors</span><span>Automation</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil1"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
     </div>
-  </div>
-
-  <!-- PROJECT 3 -->
-  <div class="card">
-    <img src="project3.jpg">
-    <div class="card-body">
-      <div class="card-title">Object Detection</div>
-      <div class="card-desc">
-       Real-time object detection system using YOLOv11 and FastAPI, capable of detecting humans and wildlife from aerial imagery.
-      </div>
-      <div class="tags">
-        <div class="tag">Python</div>
-        <div class="tag">YOLOv11</div>
-        <div class="tag">React</div>
-        <div class="tag">FastAPI</div>
-      </div>
-      <a class="btn" href="/projects/projecthasil3">View Project</a>
-    </div>
-  </div>
-
+  </section>
 </div>
 
-<footer>
-  <div>Phone<br>+6285837857570</div>
-  <div>Email<br>yogiilham003@gmail.com</div>
-  <div class="social">
-    Follow Me<br>
-    <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/yogicodee/" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://instagram.com/yogi_ilham02" target="_blank"><i class="fab fa-instagram"></i></a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="brand"><span class="dot"></span>Yogi Ilham</a>
+        <p>Fullstack Developer &amp; AI / Computer Vision researcher building reliable, efficient digital solutions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/resume">Resume</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:yogiilham003@gmail.com">yogiilham003@gmail.com</a>
+        <a href="tel:+6285837857570">+62 858 3785 7570</a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yogi Ilham. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
   </div>
-  <div>© 2026 By Yogi Ilham</div>
 </footer>
 
-</div>
+<button class="to-top" data-totop aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script src="/assets/app.js" defer></script>
 </body>
 </html>

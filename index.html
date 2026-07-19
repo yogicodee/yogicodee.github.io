@@ -1,418 +1,448 @@
-<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yogi Ilham</title>
+<title>Yogi Ilham — Fullstack Developer & AI Engineer</title>
+<meta name="description" content="Yogi Ilham — Fullstack Developer, Software Engineer and AI / Computer Vision researcher building reliable, efficient digital solutions.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<style>
-/* ===== BASE ===== */
-body{
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  background:#f3f3f3;
-  color:#111;
-  overflow-x:hidden;
-}
-
-/* ===== LIQUID GRADIENT MESH ===== */
-body::before{
-  content:"";
-  position:fixed;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,180,80,.35), transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255,80,80,.28), transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(80,200,200,.35), transparent 50%);
-  filter:blur(80px);
-  animation:meshMove 26s ease-in-out infinite alternate;
-  z-index:-3;
-}
-
-@keyframes meshMove{
-  0%{transform:translate3d(0,0,0) scale(1)}
-  100%{transform:translate3d(-160px,-120px,0) scale(1.25)}
-}
-
-/* ===== CONTAINER ===== */
-.container{
-  max-width:1180px;
-  margin:0 auto;
-  padding:0 40px;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
-
-/* ===== HEADER GLOBAL (SAMA SEMUA HALAMAN) ===== */
-.site-header{
-  height:72px;
-  display:flex;
-  align-items:center;
-}
-
-.header-inner{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:600;
-  font-size:18px;
-}
-
-.dot{
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#f5a623;
-}
-
-.nav{
-  display:flex;
-  gap:22px;
-  font-size:14px;
-  align-items:center;
-}
-
-.nav a{
-  text-decoration:none;
-  color:#111;
-  display:inline-block;
-  padding:6px 0;
-  position:relative;
-  transition:transform .15s ease;
-}
-
-.nav a:hover{
-  transform:translateY(-2px);
-}
-
-.nav a.active{
-  color:#f5a623;
-  font-weight:700;
-}
-
-.nav a.active::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-6px;
-  height:3px;
-  background:#f5a623;
-  border-radius:3px;
-}
-
-/* ===== HERO ===== */
-.hero{
-  display:grid;
-  grid-template-columns:420px 1fr;
-  gap:88px;
-  align-items:center;
-  min-height:calc(100vh - 72px - 120px);
-  position:relative;
-  opacity:0;
-  transform:translateY(60px);
-  animation:heroFade 1.2s cubic-bezier(.22,.61,.36,1) forwards;
-}
-
-@keyframes heroFade{
-  to{opacity:1; transform:translateY(0)}
-}
-
-/* ===== ORB ===== */
-.hero::before{
-  content:"";
-  position:absolute;
-  width:640px;
-  height:640px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(255,200,120,.45), transparent 70%);
-  left:40px;
-  top:50%;
-  transform:translateY(-50%);
-  filter:blur(70px);
-  animation:orbFloat 9s ease-in-out infinite;
-  z-index:0;
-}
-
-@keyframes orbFloat{
-  0%{transform:translateY(-50%) scale(1)}
-  50%{transform:translateY(-55%) scale(1.15)}
-  100%{transform:translateY(-50%) scale(1)}
-}
-
-/* ===== SPOTLIGHT ===== */
-.spotlight{
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(255,255,255,.55), transparent 60%);
-  pointer-events:none;
-  mix-blend-mode:overlay;
-  z-index:0;
-}
-
-/* ===== IMAGE ===== */
-.hero-img-wrap{
-  perspective:1600px;
-  z-index:1;
-}
-
-.hero-img{
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  object-fit:cover;
-  transform:rotateX(0) rotateY(0) scale(1);
-  transition:transform .5s cubic-bezier(.22,.61,.36,1),
-             box-shadow .5s ease;
-  box-shadow:0 70px 140px rgba(0,0,0,.28);
-  animation:floatY 6s ease-in-out infinite;
-}
-
-@keyframes floatY{
-  0%{transform:translateY(0)}
-  50%{transform:translateY(-26px)}
-  100%{transform:translateY(0)}
-}
-
-/* ===== TEXT ===== */
-.hero-text{
-  max-width:520px;
-  z-index:1;
-}
-
-.hero-text h1{
-  font-size:76px;
-  font-weight:800;
-  margin:0 0 18px;
-}
-
-.hero-text h3{
-  font-size:20px;
-  margin:0 0 14px;
-  font-weight:600;
-}
-
-.hero-text p{
-  font-size:15px;
-  line-height:1.9;
-  color:#333;
-  margin:0 0 32px;
-}
-
-/* ===== HIRE BUTTON ===== */
-.hire-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  padding:18px 36px;
-  border-radius:40px;
-  font-weight:600;
-  font-size:17px;
-  color:#fff;
-  text-decoration:none;
-  background:linear-gradient(135deg,#111,#333);
-  box-shadow:0 20px 50px rgba(0,0,0,.35);
-  position:relative;
-  overflow:hidden;
-  transition:transform .35s cubic-bezier(.22,.61,.36,1),
-             box-shadow .35s ease;
-}
-
-.hire-btn::before{
-  content:"";
-  position:absolute;
-  width:140%;
-  height:140%;
-  top:-20%;
-  left:-20%;
-  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.45),transparent 60%);
-  opacity:0;
-  transition:opacity .35s;
-}
-
-.hire-btn:hover{
-  transform:translateY(-10px) scale(1.06);
-  box-shadow:0 40px 90px rgba(0,0,0,.45);
-}
-
-.hire-btn:hover::before{
-  opacity:1;
-}
-
-.hire-btn i{
-  font-size:18px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  border-top:1px solid #ddd;
-  margin-top:auto;
-  padding:40px 0;
-  display:flex;
-  justify-content:space-between;
-  font-size:13px;
-}
-
-.social a{
-  text-decoration:none;
-  margin-right:10px;
-  color:#111;
-}
-
-.social a i{
-  font-size:18px;
-  transition:.25s;
-}
-
-.social a:hover i{
-  color:#f5a623;
-  transform:translateY(-2px);
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-.container{padding:0 24px}
-
-.hero{
-  grid-template-columns:1fr;
-  text-align:center;
-  gap:40px;
-  margin:60px 0;
-}
-
-.hero::before{
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-.hero-img{
-  width:300px;
-  height:300px;
-  margin:auto;
-}
-
-.hero-text h1{
-  font-size:48px;
-}
-
-footer{
-  flex-direction:column;
-  gap:20px;
-}
-}
-</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%230a0b10%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2762%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23f5a623%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 
-<body>
+<body id="top">
+
+<!-- decorative background -->
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+<!-- NAVBAR -->
+<nav class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Yogi</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle type="button"></button>
+      <button class="nav-toggle" data-menu-toggle type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="menu-overlay" data-menu-overlay></div>
+<aside class="mobile-menu" data-menu>
+  <button class="menu-close" data-menu-close aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+  <a href="/blog">Blog</a>
+</aside>
+
 <div class="container">
 
-<header class="site-header">
-  <div class="header-inner">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-orb" aria-hidden="true"></div>
 
-    <div class="brand">
-      <div class="dot"></div>
-      Yogi
+    <div class="hero-text">
+      <span class="hero-hi"><span class="wave">👋</span> Hello, I'm</span>
+      <h1><span class="gradient-text">Yogi Ilham</span></h1>
+      <div class="role-line" data-typing='["Fullstack Developer","Software Engineer","Data Science Enthusiast","AI &amp; Computer Vision Researcher"]'>
+        <span class="type-text"></span><span class="type-cursor"></span>
+      </div>
+      <p class="lead">
+        Software developer experienced in building web and application systems —
+        including database design, system integration, and performance optimization.
+        Focused on creating reliable and efficient digital solutions.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects" data-magnetic><i class="fas fa-arrow-right"></i> View My Work</a>
+        <a class="btn btn-ghost" href="#contact" data-magnetic><i class="fas fa-paper-plane"></i> Contact Me</a>
+      </div>
+
+      <div class="hero-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:yogiilham003@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
     </div>
 
-    <nav class="nav">
-      <a href="./" class="active">Home</a>
-      <a href="/resume">Resume</a>
-      <a href="/projects">Projects</a>
-      <a href="/contact">Contact</a>
-      <a href="/blog">Blog</a>
-    </nav>
+    <div class="hero-img-wrap">
+      <div class="hero-img-ring">
+        <img src="profile.jpg" alt="Portrait of Yogi Ilham" class="hero-img" width="380" height="380" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-badge b1"><i class="fas fa-code"></i> Fullstack</div>
+      <div class="hero-badge b2"><i class="fas fa-brain"></i> AI / Vision</div>
+    </div>
 
-  </div>
-</header>
-
-<div class="hero">
-
-  <div class="spotlight"></div>
-
-  <div class="hero-img-wrap">
-    <img src="profile.jpg" class="hero-img">
-  </div>
-
-  <div class="hero-text">
-    <h1>Hello</h1>
-    <h3>A Bit About Me</h3>
-    <p>
-      Software developer experienced in building web and application systems,
-      including database design, system integration, and performance
-      optimization. Focused on creating reliable and efficient digital
-      solutions
-    </p>
-
-    <a class="hire-btn" href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank">
-      <i class="fab fa-linkedin"></i>
-      <span>Hire Me</span>
+    <a class="scroll-ind" href="#about" aria-label="Scroll to about">
+      <span>Scroll</span>
+      <span class="scroll-mouse"></span>
     </a>
+  </header>
 
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="about-grid">
+      <div class="about-visual" data-reveal="left">
+        <img src="profile.jpg" alt="Yogi Ilham" loading="lazy" width="600" height="750">
+        <div class="about-quote"><i class="fas fa-quote-left"></i> Building reliable systems that turn complex problems into simple solutions.</div>
+      </div>
+
+      <div data-reveal="right">
+        <span class="eyebrow"><i class="fas fa-user"></i> About Me</span>
+        <h2>Turning ideas into <span class="gradient-text">robust software</span></h2>
+        <p>
+          I'm a software developer with hands-on experience across the full stack — from
+          designing databases and building web platforms to integrating systems and optimizing
+          performance. I've delivered admission &amp; learning-management systems, IoT automation,
+          and real-time AI object-detection pipelines.
+        </p>
+        <p>
+          My current focus blends modern web engineering with Artificial Intelligence and
+          Computer Vision, where I researched human &amp; wildlife detection using YOLO models
+          for my Master's thesis.
+        </p>
+
+        <div class="stats" data-stagger>
+          <div class="stat"><div class="stat-num"><span data-count="4" data-suffix="+"></span></div><div class="stat-label">Years of Experience</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="3" data-suffix="+"></span></div><div class="stat-label">Featured Projects</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="12" data-suffix="+"></span></div><div class="stat-label">Technologies Used</div></div>
+          <div class="stat"><div class="stat-num"><span data-count="2"></span></div><div class="stat-label">Academic Degrees</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fas fa-layer-group"></i> Tech Stack</span>
+      <h2 class="section-title">Tools &amp; <span class="gradient-text">Technologies</span></h2>
+      <p class="section-sub">The languages, frameworks and platforms I use to design, build and ship products.</p>
+    </div>
+  </section>
+</div>
+
+<!-- full-width marquees -->
+<div class="marquee" data-reveal>
+  <div class="marquee-track">
+    <span class="chip" data-tip="PHP"><i class="fab fa-php"></i> PHP</span>
+    <span class="chip" data-tip="CodeIgniter"><i class="fas fa-fire"></i> CodeIgniter</span>
+    <span class="chip" data-tip="MySQL / SQL"><i class="fas fa-database"></i> MySQL</span>
+    <span class="chip" data-tip="JavaScript"><i class="fab fa-js"></i> JavaScript</span>
+    <span class="chip" data-tip="React"><i class="fab fa-react"></i> React</span>
+    <span class="chip" data-tip="HTML5"><i class="fab fa-html5"></i> HTML5</span>
+    <span class="chip" data-tip="CSS3"><i class="fab fa-css3-alt"></i> CSS3</span>
+    <span class="chip" data-tip="Python"><i class="fab fa-python"></i> Python</span>
+    <!-- duplicate for seamless loop -->
+    <span class="chip" data-tip="PHP"><i class="fab fa-php"></i> PHP</span>
+    <span class="chip" data-tip="CodeIgniter"><i class="fas fa-fire"></i> CodeIgniter</span>
+    <span class="chip" data-tip="MySQL / SQL"><i class="fas fa-database"></i> MySQL</span>
+    <span class="chip" data-tip="JavaScript"><i class="fab fa-js"></i> JavaScript</span>
+    <span class="chip" data-tip="React"><i class="fab fa-react"></i> React</span>
+    <span class="chip" data-tip="HTML5"><i class="fab fa-html5"></i> HTML5</span>
+    <span class="chip" data-tip="CSS3"><i class="fab fa-css3-alt"></i> CSS3</span>
+    <span class="chip" data-tip="Python"><i class="fab fa-python"></i> Python</span>
   </div>
+</div>
+<div class="marquee rev" style="margin-top:18px" data-reveal>
+  <div class="marquee-track">
+    <span class="chip" data-tip="FastAPI"><i class="fas fa-bolt"></i> FastAPI</span>
+    <span class="chip" data-tip="Computer Vision"><i class="fas fa-eye"></i> Computer Vision</span>
+    <span class="chip" data-tip="YOLO Deep Learning"><i class="fas fa-brain"></i> YOLO</span>
+    <span class="chip" data-tip="IoT &amp; Sensors"><i class="fas fa-microchip"></i> IoT</span>
+    <span class="chip" data-tip="Automation"><i class="fas fa-robot"></i> Automation</span>
+    <span class="chip" data-tip="Git &amp; GitHub"><i class="fab fa-git-alt"></i> Git</span>
+    <span class="chip" data-tip="Linux"><i class="fab fa-linux"></i> Linux</span>
+    <span class="chip" data-tip="Data Analysis"><i class="fas fa-chart-line"></i> Data Analysis</span>
+    <!-- duplicate -->
+    <span class="chip" data-tip="FastAPI"><i class="fas fa-bolt"></i> FastAPI</span>
+    <span class="chip" data-tip="Computer Vision"><i class="fas fa-eye"></i> Computer Vision</span>
+    <span class="chip" data-tip="YOLO Deep Learning"><i class="fas fa-brain"></i> YOLO</span>
+    <span class="chip" data-tip="IoT &amp; Sensors"><i class="fas fa-microchip"></i> IoT</span>
+    <span class="chip" data-tip="Automation"><i class="fas fa-robot"></i> Automation</span>
+    <span class="chip" data-tip="Git &amp; GitHub"><i class="fab fa-git-alt"></i> Git</span>
+    <span class="chip" data-tip="Linux"><i class="fab fa-linux"></i> Linux</span>
+    <span class="chip" data-tip="Data Analysis"><i class="fas fa-chart-line"></i> Data Analysis</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fas fa-briefcase"></i> Career Path</span>
+      <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+      <p class="section-sub">A timeline of roles where I built products and grew as an engineer.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"><span data-tl-fill></span></div>
+
+      <div class="tl-item" data-reveal="right">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">2022 — 2023</span>
+          <h3 class="tl-role">Fullstack Developer <span>· Yohannes Gabriel Foundation</span></h3>
+          <p class="tl-desc">Developed and maintained web-based systems (PPDB, LMS, dashboards) using CodeIgniter and SQL, optimized databases, and supported network configuration and deployment.</p>
+        </div>
+      </div>
+
+      <div class="tl-item" data-reveal="right">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">2023</span>
+          <h3 class="tl-role">Facilitator <span>· Dicoding</span></h3>
+          <p class="tl-desc">Facilitated IT Support training, guided technical learning and troubleshooting, and supported course delivery to develop participants' IT skills.</p>
+        </div>
+      </div>
+
+      <div class="tl-item" data-reveal="right">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-year">2021 — 2022</span>
+          <h3 class="tl-role">Digital Marketing Intern <span>· Samchick</span></h3>
+          <p class="tl-desc">Supported digital marketing campaigns, managed social media and content, tracked analytics performance, and assisted SEO/SEM to improve brand visibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fas fa-folder-open"></i> Portfolio</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      <p class="section-sub">Selected work across fullstack web, IoT automation and applied AI.</p>
+    </div>
+
+    <div class="filter-bar" data-filter-bar data-reveal>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="fullstack">Fullstack</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="ai">AI / ML</button>
+      <button class="filter-btn" data-filter="iot">IoT</button>
+    </div>
+
+    <div class="projects-grid" data-stagger>
+      <!-- AI Object Detection -->
+      <article class="pcard" data-cat="ai" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">AI / ML</span>
+          <img src="project3.jpg" alt="AI Object Detection" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">AI Object Detection</h3>
+          <p class="pcard-desc">Real-time detection of humans and wildlife from aerial thermal imagery using YOLOv11, served through a FastAPI + React web interface.</p>
+          <div class="pcard-tags"><span>Python</span><span>YOLOv11</span><span>FastAPI</span><span>React</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil3"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Web PPDB -->
+      <article class="pcard" data-cat="fullstack web" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">Fullstack</span>
+          <img src="project1.png" alt="Web PPDB admission system" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Web PPDB &amp; LMS</h3>
+          <p class="pcard-desc">Student admission and learning-management platform with role-based dashboards for administrators and students.</p>
+          <div class="pcard-tags"><span>PHP</span><span>CodeIgniter</span><span>MySQL</span><span>Dashboard</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil2"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Smart Greenhouse -->
+      <article class="pcard" data-cat="iot" data-tilt>
+        <div class="pcard-media">
+          <span class="pcard-cat">IoT</span>
+          <img src="project2.jpg" alt="Smart Greenhouse IoT" loading="lazy">
+        </div>
+        <div class="pcard-body">
+          <h3 class="pcard-title">Smart Greenhouse IoT</h3>
+          <p class="pcard-desc">IoT automation for monitoring and controlling greenhouse conditions in real time using sensors and a live dashboard.</p>
+          <div class="pcard-tags"><span>IoT</span><span>Sensors</span><span>Automation</span></div>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil1"><i class="fas fa-arrow-right"></i> Case Study</a>
+            <a class="pcard-link ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EDUCATION & ACHIEVEMENTS -->
+  <section class="section" id="education">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fas fa-graduation-cap"></i> Background</span>
+      <h2 class="section-title">Education &amp; <span class="gradient-text">Achievements</span></h2>
+      <p class="section-sub">Academic foundation and highlights that shaped my work.</p>
+    </div>
+
+    <div class="edu-grid" data-stagger>
+      <div class="edu-card">
+        <div class="edu-icon"><i class="fas fa-brain"></i></div>
+        <span class="edu-year">2024 — 2025</span>
+        <h3>Binus University — Master's Degree</h3>
+        <p>Focused on Artificial Intelligence &amp; Computer Vision, with a thesis on human and animal detection using YOLO algorithms.</p>
+      </div>
+      <div class="edu-card">
+        <div class="edu-icon"><i class="fas fa-microchip"></i></div>
+        <span class="edu-year">2018 — 2022</span>
+        <h3>UNU Blitar — Bachelor's Degree</h3>
+        <p>Built an IoT-based smart greenhouse integrating sensors and automation for real-time environmental monitoring and control.</p>
+      </div>
+    </div>
+
+    <div class="achv-list" data-stagger>
+      <div class="achv"><i class="fas fa-award"></i><div><b>Master's Thesis — YOLO Detection</b><span>Human &amp; wildlife detection on UAV thermal imagery.</span></div></div>
+      <div class="achv"><i class="fas fa-seedling"></i><div><b>IoT Smart Greenhouse</b><span>End-to-end sensor automation &amp; monitoring system.</span></div></div>
+      <div class="achv"><i class="fas fa-chalkboard-teacher"></i><div><b>Dicoding Facilitator</b><span>Guided IT Support training &amp; technical mentoring.</span></div></div>
+    </div>
+  </section>
+
+  <!-- GITHUB -->
+  <section class="section" id="github">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fab fa-github"></i> Open Source</span>
+      <h2 class="section-title">GitHub <span class="gradient-text">Activity</span></h2>
+      <p class="section-sub">Live contribution activity and language breakdown from my GitHub profile.</p>
+    </div>
+
+    <div class="gh-card" data-reveal="scale">
+      <div class="gh-head"><i class="fab fa-github"></i><h3>@yogicodee</h3></div>
+      <p class="gh-user">Real-time stats pulled from GitHub</p>
+      <div class="gh-imgs">
+        <img src="https://ghchart.rshah.org/f5a623/yogicodee" alt="GitHub contribution chart for yogicodee" loading="lazy" onerror="this.style.display='none'">
+        <div class="gh-stats">
+          <img src="https://github-readme-stats.vercel.app/api?username=yogicodee&show_icons=true&hide_border=true&title_color=f5a623&icon_color=ff7a18&text_color=b7bcc7&bg_color=00000000" alt="GitHub stats" loading="lazy" onerror="this.style.display='none'">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yogicodee&layout=compact&hide_border=true&title_color=f5a623&text_color=b7bcc7&bg_color=00000000" alt="Top languages" loading="lazy" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div style="margin-top:28px">
+        <a class="btn btn-ghost" href="https://github.com/yogicodee/" target="_blank" rel="noopener" data-magnetic><i class="fab fa-github"></i> View Full Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><i class="fas fa-paper-plane"></i> Get in touch</span>
+      <h2 class="section-title">Let's <span class="gradient-text">Work Together</span></h2>
+      <p class="section-sub">Have a project, role, or idea in mind? I'd love to hear about it.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info" data-reveal="left">
+        <h2>Let's build something great.</h2>
+        <p>Interested in working together, building AI systems, or developing digital solutions? Feel free to reach out — I usually reply within a day.</p>
+
+        <a class="contact-line" href="mailto:yogiilham003@gmail.com">
+          <span class="ic"><i class="fas fa-envelope"></i></span>
+          <span><small>Email</small><b>yogiilham003@gmail.com</b></span>
+        </a>
+        <a class="contact-line" href="tel:+6285837857570">
+          <span class="ic"><i class="fas fa-phone"></i></span>
+          <span><small>Phone</small><b>+62 858 3785 7570</b></span>
+        </a>
+        <a class="contact-line" href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener">
+          <span class="ic"><i class="fab fa-linkedin-in"></i></span>
+          <span><small>LinkedIn</small><b>in/ahmad-yogi</b></span>
+        </a>
+
+        <div class="contact-social">
+          <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/yogi_ilham02/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form" data-contact-form data-reveal="right" novalidate>
+        <div class="field">
+          <input type="text" id="cf-name" name="name" placeholder=" " required>
+          <label for="cf-name">Your Name</label>
+        </div>
+        <div class="field">
+          <input type="email" id="cf-email" name="email" placeholder=" " required>
+          <label for="cf-email">Email Address</label>
+        </div>
+        <div class="field">
+          <textarea id="cf-msg" name="message" placeholder=" " required></textarea>
+          <label for="cf-msg">Your Message</label>
+        </div>
+        <button class="btn btn-primary form-btn" type="submit">
+          <span class="spinner"></span>
+          <span class="btn-label"><i class="fas fa-paper-plane"></i> Send Message</span>
+        </button>
+        <div class="form-note" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
 
 </div>
 
-<footer>
-  <div>Phone<br>+6285837857570</div>
-
-  <div>Email<br>yogiilham003@gmail.com</div>
-
-  <div class="social">
-    Follow Me<br>
-
-    <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
-
-    <a href="https://github.com/yogicodee/" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-
-    <a href="https://instagram.com/yogi_ilham02" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#top" class="brand"><span class="dot"></span>Yogi Ilham</a>
+        <p>Fullstack Developer &amp; AI / Computer Vision researcher building reliable, efficient digital solutions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>More</h4>
+        <a href="/resume">Resume</a>
+        <a href="/projects">All Projects</a>
+        <a href="/blog">Blog</a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yogi Ilham. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
   </div>
-
-  <div>© 2026 By Yogi Ilham</div>
 </footer>
 
-</div>
+<button class="to-top" data-totop aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
-<script>
-const img = document.querySelector(".hero-img");
-const wrap = document.querySelector(".hero-img-wrap");
-const light = document.querySelector(".spotlight");
-
-wrap.addEventListener("mousemove", e=>{
-  const rect = wrap.getBoundingClientRect();
-  const x = (e.clientX - rect.left)/rect.width - .5;
-  const y = (e.clientY - rect.top)/rect.height - .5;
-
-  img.style.transform =
-    `rotateY(${x*20}deg) rotateX(${-y*20}deg) scale(1.1)`;
-
-  light.style.transform =
-    `translate(${e.clientX-rect.left-250}px,${e.clientY-rect.top-250}px)`;
-});
-
-wrap.addEventListener("mouseleave", ()=>{
-  img.style.transform="rotateY(0) rotateX(0) scale(1)";
-});
-</script>
-
+<script src="/assets/app.js" defer></script>
 </body>
 </html>

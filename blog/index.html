@@ -1,292 +1,115 @@
-<?php ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog - Yogi Ilham</title>
+<title>Blog — Yogi Ilham</title>
+<meta name="description" content="Articles by Yogi Ilham on AI, computer vision and software engineering.">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-<style>
-body{
-  margin:0;
-  font-family:'Montserrat',sans-serif;
-  background:#f3f3f3;
-  color:#111;
-  overflow-x:hidden;
-}
-
-/* ambient */
-body::before{
-  content:"";
-  position:fixed;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(255,170,60,.18), transparent 50%),
-    radial-gradient(circle at 80% 30%, rgba(255,60,60,.15), transparent 50%),
-    radial-gradient(circle at 60% 80%, rgba(80,200,200,.15), transparent 50%);
-  filter:blur(120px);
-  z-index:-1;
-}
-
-/* ===== CONTAINER SAMA SEMUA HALAMAN ===== */
-.container{
-  max-width:1180px;
-  margin:auto;
-  padding:0 40px;
-}
-
-/* ===== HEADER GLOBAL ===== */
-.site-header{
-  height:72px;
-  display:flex;
-  align-items:center;
-}
-
-.header-inner{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:600;
-}
-
-.dot{
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#f5a623;
-}
-
-.nav{
-  display:flex;
-  gap:22px;
-  font-size:14px;
-  align-items:center;
-}
-
-.nav a{
-  text-decoration:none;
-  color:#111;
-  display:inline-block;
-  padding:6px 0;
-  position:relative;
-  transition:transform .15s ease;
-}
-
-.nav a:hover{
-  transform:translateY(-2px);
-}
-
-.nav a.active{
-  color:#f5a623;
-  font-weight:700;
-}
-
-.nav a.active::after{
-  content:"";
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-6px;
-  height:3px;
-  background:#f5a623;
-  border-radius:3px;
-}
-
-/* ===== TITLE ===== */
-.page-title{
-  font-size:56px;
-  font-weight:800;
-  margin:80px 0 40px;
-}
-
-/* ===== FEATURED ===== */
-.featured{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:40px;
-  margin-bottom:60px;
-  align-items:center;
-}
-
-.featured img{
-  width:100%;
-  border-radius:18px;
-  box-shadow:0 30px 80px rgba(0,0,0,.18);
-}
-
-.featured-title{
-  font-size:28px;
-  font-weight:700;
-  margin-bottom:10px;
-}
-
-.featured-desc{
-  color:#555;
-  margin-bottom:14px;
-}
-
-.tag{
-  display:inline-block;
-  background:#eee;
-  padding:4px 10px;
-  border-radius:6px;
-  font-size:12px;
-  margin-right:6px;
-}
-
-/* ===== POSTS ===== */
-.posts{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:26px;
-}
-
-/* ===== CARD ===== */
-.card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 16px 40px rgba(0,0,0,.08);
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-6px);
-}
-
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-}
-
-.card-body{
-  padding:16px 18px 20px;
-}
-
-.card-title{
-  font-weight:600;
-  margin-bottom:6px;
-}
-
-.card-desc{
-  font-size:14px;
-  color:#555;
-  margin-bottom:10px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  border-top:1px solid #ddd;
-  margin-top:80px;
-  padding:30px 0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-  font-size:13px;
-}
-
-.social{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-}
-
-.social .social-links{
-  display:flex;
-  gap:12px;
-  margin-top:8px;
-}
-
-.social a{
-  text-decoration:none;
-  color:inherit;
-  display:inline-flex;
-  align-items:center;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-.container{padding:0 24px}
-.posts{grid-template-columns:1fr}
-.featured{grid-template-columns:1fr}
-.page-title{font-size:40px}
-footer{flex-direction:column;align-items:flex-start;gap:12px}
-}
-</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%230a0b10%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2762%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23f5a623%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 
-<body>
+<body id="top">
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+<nav class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><span class="dot"></span>Yogi</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle type="button"></button>
+      <button class="nav-toggle" data-menu-toggle type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-overlay" data-menu-overlay></div>
+<aside class="mobile-menu" data-menu>
+  <button class="menu-close" data-menu-close aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="/">Home</a>
+  <a href="/resume">Resume</a>
+  <a href="/projects">Projects</a>
+  <a href="/contact">Contact</a>
+  <a href="/blog">Blog</a>
+</aside>
 
 <div class="container">
-
-<header class="site-header">
-  <div class="header-inner">
-
-    <div class="brand">
-      <div class="dot"></div>
-      Yogi
+  <section class="section" style="padding-top:70px">
+    <div class="section-head page-enter">
+      <span class="eyebrow"><i class="fas fa-pen-nib"></i> Writing</span>
+      <h1 class="page-title">Blog</h1>
+      <p class="page-lead">Notes and articles on AI, computer vision and building software.</p>
     </div>
 
-    <nav class="nav">
-      <a href="./">Home</a>
-      <a href="/resume">Resume</a>
-      <a href="/projects">Projects</a>
-      <a href="/contact">Contact</a>
-      <a href="/blog" class="active">Blog</a>
-    </nav>
+    <article class="pcard blog-feat" data-reveal="scale" data-tilt>
+      <div class="blog-feat-grid">
+        <div class="pcard-media" style="aspect-ratio:auto">
+          <span class="pcard-cat">Featured</span>
+          <img src="/blog1.jpg" alt="YOLO for Wildlife Detection" loading="lazy" style="height:100%;min-height:280px">
+        </div>
+        <div class="pcard-body" style="padding:34px;display:flex;flex-direction:column;justify-content:center">
+          <div class="pcard-tags" style="margin-bottom:14px"><span>AI</span><span>Computer Vision</span><span>YOLO</span></div>
+          <h2 class="pcard-title" style="font-size:26px;margin-bottom:12px">YOLO for Wildlife Detection</h2>
+          <p class="pcard-desc" style="font-size:15px">How YOLO models enable automated detection of humans and animals in UAV thermal imagery — from dataset preparation to real-time inference.</p>
+          <div class="pcard-actions">
+            <a class="pcard-link primary" href="/projects/projecthasil3"><i class="fas fa-arrow-right"></i> Read the case study</a>
+          </div>
+        </div>
+      </div>
+    </article>
 
-  </div>
-</header>
-
-<div class="page-title">Blog</div>
-
-<div class="featured">
-<img src="blog1.jpg">
-
-<div>
-<div class="featured-title">YOLO for Wildlife Detection</div>
-<div class="featured-desc">
-How YOLO models enable automated detection of humans and animals in UAV thermal imagery.
+    <p class="section-sub" data-reveal style="text-align:center;margin-top:50px">More articles coming soon.</p>
+  </section>
 </div>
 
-<div>
-<span class="tag">AI</span>
-<span class="tag">Computer Vision</span>
-<span class="tag">YOLO</span>
-</div>
-</div>
-</div>
-
-<footer>
-  <div>
-    Email<br>
-    yogiilham003@gmail.com
-  </div>
-
-  <div class="social">
-    Follow Me
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/yogicodee/" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://instagram.com/yogi_ilham02" target="_blank"><i class="fab fa-instagram"></i></a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="brand"><span class="dot"></span>Yogi Ilham</a>
+        <p>Fullstack Developer &amp; AI / Computer Vision researcher building reliable, efficient digital solutions.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/resume">Resume</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:yogiilham003@gmail.com">yogiilham003@gmail.com</a>
+        <a href="tel:+6285837857570">+62 858 3785 7570</a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yogi Ilham. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
     </div>
   </div>
-
-  <div>© 2026 Yogi Ilham</div>
 </footer>
 
-</div>
+<button class="to-top" data-totop aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
 
+<script src="/assets/app.js" defer></script>
 </body>
 </html>
