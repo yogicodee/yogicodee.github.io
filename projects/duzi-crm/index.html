@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duzi CRM — Case Study | Ahmad Yogi Kulumul Ilham</title>
+<meta name="description" content="Case study: Duzi CRM, a fullstack customer engagement platform with CRM, WhatsApp inbox, broadcasts, automation, and AI — built with Vue 3, Go, Goravel, MySQL, and Node.js.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Ahmad Yogi Kulumul Ilham">
+<meta name="keywords" content="Ahmad Yogi Kulumul Ilham, Duzi CRM, Fullstack Developer, Vue 3, Go, Goravel, MySQL, WhatsApp CRM, IT Specialist Indonesia">
+<link rel="canonical" href="https://www.yogicodee.my.id/projects/duzi-crm">
+<meta name="theme-color" content="#f5a623">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ahmad Yogi Kulumul Ilham">
+<meta property="og:locale" content="id_ID">
+<meta property="og:url" content="https://www.yogicodee.my.id/projects/duzi-crm">
+<meta property="og:title" content="Duzi CRM — Case Study | Ahmad Yogi Kulumul Ilham">
+<meta property="og:description" content="Fullstack CRM & customer engagement platform with WhatsApp inbox, broadcasts, automation, and AI — Vue 3, Go, Goravel, MySQL, Node.js.">
+<meta property="og:image" content="https://www.yogicodee.my.id/projects/duzi-crm/duzi-login.jpg">
+<meta property="og:image:alt" content="Duzi CRM platform">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Duzi CRM — Case Study | Ahmad Yogi Kulumul Ilham">
+<meta name="twitter:description" content="Fullstack CRM & customer engagement platform with WhatsApp inbox, broadcasts, automation, and AI.">
+<meta name="twitter:image" content="https://www.yogicodee.my.id/projects/duzi-crm/duzi-login.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%230a0b10%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2762%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23f5a623%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/animations.css">
+<style>
+/* case-study architecture rows (scoped, reuses shared tokens) */
+.cs-arch{display:grid;gap:10px;margin-top:6px}
+.cs-arch>div{display:grid;grid-template-columns:180px 1fr;gap:14px;align-items:baseline;
+  padding:12px 0;border-bottom:1px solid var(--border)}
+.cs-arch>div:last-child{border-bottom:none}
+.cs-arch-k{font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.02em}
+.cs-arch-v{color:var(--text-soft);font-size:14.5px}
+@media(max-width:640px){.cs-arch>div{grid-template-columns:1fr;gap:4px}}
+</style>
+</head>
+
+<body id="top">
+
+<div class="preloader" data-preloader aria-hidden="true">
+  <div class="pl-inner"><span class="pl-dot"></span>Yogi</div>
+  <div class="pl-bar"><span></span></div>
+</div>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+<nav class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><span class="dot"></span>Yogi</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/projects" class="active">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle type="button"></button>
+      <button class="nav-toggle" data-menu-toggle type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-overlay" data-menu-overlay></div>
+<aside class="mobile-menu" data-menu>
+  <button class="menu-close" data-menu-close aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="/">Home</a>
+  <a href="/resume">Resume</a>
+  <a href="/projects">Projects</a>
+  <a href="/contact">Contact</a>
+  <a href="/blog">Blog</a>
+</aside>
+
+<div class="container">
+  <section class="section" style="padding:70px 0 40px">
+    <div class="page-enter">
+      <a class="back-link" href="/projects"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+      <span class="eyebrow"><i class="fas fa-diagram-project"></i> Fullstack · CRM</span>
+      <h1 class="page-title">Duzi CRM</h1>
+      <p class="page-lead" style="margin:0 0 22px">A fullstack CRM and customer engagement platform that unifies customer management, sales activities, WhatsApp conversations, campaigns, broadcasts, automation, and AI-assisted communication in one workspace.</p>
+      <div class="pcard-tags" style="margin-bottom:26px">
+        <span>Vue 3</span><span>TypeScript</span><span>Go</span><span>Goravel</span><span>MySQL</span><span>Node.js</span><span>WhatsApp</span><span>Docker</span>
+      </div>
+      <img class="cs-hero-img" src="/projects/duzi-crm/duzi-inbox.jpg" alt="Duzi CRM WhatsApp inbox" loading="lazy">
+    </div>
+
+    <div class="cs-block" data-reveal style="margin-top:60px">
+      <h2><i class="fas fa-circle-exclamation"></i> Problem</h2>
+      <p>Businesses need a centralized system to manage customer relationships, sales activities, WhatsApp conversations, broadcasts, and automation, instead of juggling disconnected tools that fragment data and slow the team down.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-lightbulb"></i> Solution</h2>
+      <p>A modular CRM platform that combines customer management, sales workflows, WhatsApp communication, automation, and AI capabilities into a single unified workspace, from lead capture and pipeline tracking to broadcast messaging and AI-assisted replies.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-user-gear"></i> My Role</h2>
+      <p><strong>Fullstack Developer / Software Engineer</strong> — responsible for the platform end to end, across frontend, backend, database, integrations, and deployment.</p>
+      <ul style="margin:14px 0 0;padding-left:20px;color:var(--text-soft);line-height:1.9;font-size:14.5px">
+        <li>Designed and implemented frontend interfaces.</li>
+        <li>Developed backend APIs and business logic.</li>
+        <li>Designed and maintained database structures.</li>
+        <li>Integrated WhatsApp communication services.</li>
+        <li>Developed broadcast and messaging workflows.</li>
+        <li>Implemented authentication and role-based access control (RBAC).</li>
+        <li>Worked on AI Agent and AI provider configuration.</li>
+        <li>Implemented automation-related functionality.</li>
+        <li>Handled deployment and production infrastructure.</li>
+        <li>Debugged and optimized system behavior.</li>
+      </ul>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-sitemap"></i> Architecture</h2>
+      <div class="cs-arch">
+        <div><span class="cs-arch-k">Frontend</span><span class="cs-arch-v">Vue 3 · TypeScript · Vite · Pinia · Tailwind CSS</span></div>
+        <div><span class="cs-arch-k">Backend</span><span class="cs-arch-v">Go · Goravel</span></div>
+        <div><span class="cs-arch-k">Database</span><span class="cs-arch-v">MySQL</span></div>
+        <div><span class="cs-arch-k">WhatsApp Service</span><span class="cs-arch-v">Node.js · whatsapp-web.js · Puppeteer</span></div>
+        <div><span class="cs-arch-k">Infrastructure</span><span class="cs-arch-v">Docker · Docker Compose · Nginx · VPS</span></div>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-gears"></i> Engineering Highlights</h2>
+      <p>More than CRUD — the project spans fullstack architecture and production operations:</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Fullstack architecture</span><span>API development</span><span>Third-party integration</span>
+        <span>WhatsApp communication infrastructure</span><span>Broadcast processing</span><span>Auth &amp; RBAC</span>
+        <span>AI integration</span><span>Automation workflows</span><span>Database design</span><span>Deployment &amp; production troubleshooting</span>
+      </div>
+    </div>
+
+    <div data-reveal style="margin-top:60px">
+      <div class="section-head" style="text-align:left;margin:0 0 22px;max-width:none">
+        <h2 class="section-title" style="font-size:26px"><i class="fas fa-images" style="color:var(--accent)"></i> Screens</h2>
+      </div>
+      <div class="cs-gallery" data-stagger>
+        <img src="/projects/duzi-crm/duzi-login.jpg" alt="Duzi CRM login and dashboard preview" loading="lazy" data-zoom>
+        <img src="/projects/duzi-crm/duzi-agent.jpg" alt="Duzi CRM AI Agent configuration" loading="lazy" data-zoom>
+        <img src="/projects/duzi-crm/duzi-providers.jpg" alt="Duzi CRM AI Providers" loading="lazy" data-zoom>
+      </div>
+    </div>
+
+    <div class="cta-band" style="margin-top:70px">
+      <div class="cs-block" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:0">
+        <div><strong style="font-size:18px">Need a CRM or customer-engagement platform?</strong><p style="margin-top:6px">Let's build it together.</p></div>
+        <a class="btn btn-primary" href="/contact" data-magnetic><i class="fas fa-paper-plane"></i> Start Project</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none">
+      <span>© 2026 Yogi Ilham. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" data-totop aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<div class="lightbox" data-lightbox><img alt="Enlarged view"></div>
+
+<script src="/assets/app.js" defer></script>
+<script src="/assets/animations.js" defer></script>
+</body>
+</html>
