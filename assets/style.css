@@ -332,6 +332,18 @@ body{
 .tl-role{font-size:18px;font-weight:700;margin:0 0 8px}
 .tl-role span{color:var(--text-soft);font-weight:500}
 .tl-desc{color:var(--text-soft);font-size:14.5px;margin:0}
+/* tech-stack tags inside a timeline card */
+.tl-stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.tl-stack span{font-size:11px;font-weight:600;color:var(--text-soft);background:var(--tag-bg);
+  padding:5px 11px;border-radius:8px;border:1px solid var(--border);white-space:nowrap}
+/* "Current" indicator for the latest role */
+.tl-current{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:800;letter-spacing:.08em;
+  text-transform:uppercase;color:#1a1200;background:var(--grad);padding:4px 11px;border-radius:20px;margin-left:10px;
+  vertical-align:middle;box-shadow:0 6px 16px var(--glow)}
+.tl-current::before{content:"";width:6px;height:6px;border-radius:50%;background:#1a1200;animation:pulse 2s ease-in-out infinite}
+/* subtle standout for the current role (does not break the shared design) */
+.tl-item.current .tl-card{border-color:var(--border-strong);background:var(--surface-2)}
+.tl-item.current .tl-dot{box-shadow:0 0 0 5px var(--glow)}
 
 /* ---------- PROJECTS ---------- */
 .filter-bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:44px}
