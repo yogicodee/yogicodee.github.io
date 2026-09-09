@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duzi WMS — Warehouse Management System | Ahmad Yogi Kulumul Ilham</title>
+<meta name="description" content="Duzi WMS adalah platform manajemen gudang untuk inventory, stock movement, scanning, retur, rekonsiliasi, dan operasional warehouse. Case study oleh Ahmad Yogi Kulumul Ilham.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Ahmad Yogi Kulumul Ilham">
+<meta name="keywords" content="Ahmad Yogi Kulumul Ilham, Duzi WMS, Warehouse Management System, Fullstack Developer, Vue 3, Go, Goravel, MySQL, IT Specialist Indonesia">
+<link rel="canonical" href="https://www.yogicodee.my.id/projects/duzi-wms">
+<meta name="theme-color" content="#f5a623">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ahmad Yogi Kulumul Ilham">
+<meta property="og:locale" content="id_ID">
+<meta property="og:url" content="https://www.yogicodee.my.id/projects/duzi-wms">
+<meta property="og:title" content="Duzi WMS — Warehouse Management System | Ahmad Yogi Kulumul Ilham">
+<meta property="og:description" content="Platform manajemen gudang: inventory, stock movement, scanning, retur, rekonsiliasi, dan operasional warehouse.">
+<meta property="og:image" content="https://www.yogicodee.my.id/projects/duzi-wms/duzi-wms-dashboard.jpg">
+<meta property="og:image:alt" content="Duzi WMS warehouse management dashboard">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Duzi WMS — Warehouse Management System | Ahmad Yogi Kulumul Ilham">
+<meta name="twitter:description" content="Platform manajemen gudang: inventory, scanning, retur, rekonsiliasi, dan operasional warehouse.">
+<meta name="twitter:image" content="https://www.yogicodee.my.id/projects/duzi-wms/duzi-wms-dashboard.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Crect width=%27100%27 height=%27100%27 rx=%2724%27 fill=%27%230a0b10%27/%3E%3Ctext x=%2750%27 y=%2770%27 font-size=%2762%27 font-family=%27Arial,sans-serif%27 font-weight=%27bold%27 text-anchor=%27middle%27 fill=%27%23f5a623%27%3EY%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/animations.css">
+<style>
+/* scoped case-study helpers (reuse shared tokens) */
+.cs-arch{display:grid;gap:10px;margin-top:6px}
+.cs-arch>div{display:grid;grid-template-columns:180px 1fr;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--border)}
+.cs-arch>div:last-child{border-bottom:none}
+.cs-arch-k{font-weight:700;font-size:13px;color:var(--accent);letter-spacing:.02em}
+.cs-arch-v{color:var(--text-soft);font-size:14.5px}
+.cs-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:8px}
+.cs-flow .step{background:var(--tag-bg);border:1px solid var(--border);border-radius:10px;padding:9px 14px;
+  font-size:13px;font-weight:600;white-space:nowrap}
+.cs-flow .arrow{color:var(--accent);font-weight:800}
+.modmap{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:6px}
+.modmap .mg{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.modmap .mg h3{margin:0 0 10px;font-size:14px;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.modmap .mg .pcard-tags{margin:0}
+.cs-shots{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:6px}
+.cs-shots figure{margin:0}
+.cs-shots img{width:100%;border-radius:14px;border:1px solid var(--border);cursor:zoom-in;
+  aspect-ratio:16/10;object-fit:cover;object-position:center top;transition:transform .4s var(--ease),box-shadow .4s}
+.cs-shots img:hover{transform:scale(1.02);box-shadow:var(--shadow-sm)}
+.cs-shots figcaption{margin-top:8px;font-size:12.5px;color:var(--text-dim);text-align:center}
+@media(max-width:768px){.cs-arch>div{grid-template-columns:1fr;gap:4px}.modmap,.cs-shots{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body id="top">
+
+<div class="preloader" data-preloader aria-hidden="true">
+  <div class="pl-inner"><span class="pl-dot"></span>Yogi</div>
+  <div class="pl-bar"><span></span></div>
+</div>
+
+<div class="bg-mesh" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor-glow aria-hidden="true"></div>
+<div class="scroll-progress" data-progress aria-hidden="true"></div>
+
+<nav class="site-nav" data-nav>
+  <div class="nav-inner">
+    <a href="/" class="brand"><span class="dot"></span>Yogi</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="/projects" class="active">Projects</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/blog">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle type="button"></button>
+      <button class="nav-toggle" data-menu-toggle type="button" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="menu-overlay" data-menu-overlay></div>
+<aside class="mobile-menu" data-menu>
+  <button class="menu-close" data-menu-close aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="/">Home</a>
+  <a href="/resume">Resume</a>
+  <a href="/projects">Projects</a>
+  <a href="/contact">Contact</a>
+  <a href="/blog">Blog</a>
+</aside>
+
+<div class="container">
+  <section class="section" style="padding:70px 0 40px">
+    <div class="page-enter">
+      <a class="back-link" href="/projects"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+      <span class="eyebrow"><i class="fas fa-warehouse"></i> Fullstack · Warehouse Management</span>
+      <h1 class="page-title">Duzi WMS</h1>
+      <p class="page-lead" style="margin:0 0 22px">Duzi Warehouse Management System — a platform that centralizes inventory, stock movement, scanning, inbound/outbound, returns, reconciliation, and warehouse operations in one system.</p>
+      <div class="pcard-tags" style="margin-bottom:26px">
+        <span>Vue 3</span><span>TypeScript</span><span>Vite</span><span>Pinia</span><span>Tailwind CSS</span><span>Go</span><span>Goravel</span><span>MySQL</span><span>Docker</span><span>Nginx</span>
+      </div>
+      <img class="cs-hero-img" src="/projects/duzi-wms/duzi-wms-dashboard.jpg" alt="Duzi WMS operational dashboard" loading="lazy">
+    </div>
+
+    <div class="cs-block" data-reveal style="margin-top:60px">
+      <h2><i class="fas fa-circle-info"></i> Overview</h2>
+      <p>Duzi WMS is a warehouse management platform designed to centralize inventory, stock movement, scanning, inbound and outbound goods, returns, reconciliation, and a range of operational workflows within a single system.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-circle-exclamation"></i> Challenge</h2>
+      <p>Warehouse operations involve many interconnected processes — inventory, inbound, outbound, stock movement, scanning, shipment, returns, reconciliation, anomaly monitoring, purchasing, packing, and reporting. This system is designed to centralize those workflows in one operational platform so they can be tracked and managed consistently.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-lightbulb"></i> Solution</h2>
+      <p>Duzi WMS brings these capabilities together in one place:</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Centralized inventory</span><span>Warehouse management</span><span>Stock movement</span><span>Scanning</span>
+        <span>Return processing</span><span>Reconciliation</span><span>Anomaly monitoring</span><span>Business workflow</span>
+        <span>Reporting</span><span>Audit trail</span>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-gauge-high"></i> Operational Dashboard</h2>
+      <p>The dashboard provides operational visibility into inventory conditions, stock movement, scanning activity, outbound goods, returns, and stock indicators — including total products, categories, total stock, low-stock alerts, inventory value, inbound/outbound, scan in/out, pending out, total returns, damaged qty, and sellable qty, with trend charts and filters by period and warehouse.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-boxes-stacked"></i> Inventory Management</h2>
+      <p>Centralizes product and stock management across warehouses:</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Products</span><span>Inventory monitoring</span><span>Stock opname</span><span>Stock requests</span>
+        <span>Inter-warehouse transfer</span><span>Warehouse &amp; locations</span><span>Stock mutation</span>
+        <span>Inbound / Outbound</span><span>Inventory reports</span><span>Low-stock monitoring</span><span>Stock movement history</span>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-route"></i> Warehouse Flow</h2>
+      <div class="cs-flow">
+        <span class="step">Produk</span><span class="arrow">→</span>
+        <span class="step">Inventory</span><span class="arrow">→</span>
+        <span class="step">Gudang / Lokasi</span><span class="arrow">→</span>
+        <span class="step">Scan In</span><span class="arrow">→</span>
+        <span class="step">Proses Stok</span><span class="arrow">→</span>
+        <span class="step">Packing</span><span class="arrow">→</span>
+        <span class="step">Scan Out</span><span class="arrow">→</span>
+        <span class="step">Pengiriman</span><span class="arrow">→</span>
+        <span class="step">Retur / Claim</span><span class="arrow">→</span>
+        <span class="step">Rekonsiliasi</span>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-barcode"></i> Scanning Flow</h2>
+      <p>The scanning workflow records goods in and out with status tracking, packer identification, quantity, and timestamps:</p>
+      <div class="cs-flow" style="margin-bottom:12px">
+        <span class="step">Scan In</span><span class="arrow">→</span>
+        <span class="step">Tracking (packer · qty · timestamp)</span><span class="arrow">→</span>
+        <span class="step">Scan Out</span><span class="arrow">→</span>
+        <span class="step">Status: Selesai / Pending</span>
+      </div>
+      <p>Includes scan history, resi lookup, quantity tracking, scan-in and scan-out timestamps, completed/pending status, and source/platform information.</p>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-scale-balanced"></i> Return &amp; Reconciliation</h2>
+      <p>The return workflow records returned goods, product condition, damage details, sellable quantity, warehouse location, and processing status. Reconciliation and anomaly monitoring help check operational data and identify potential mismatches in warehouse processes.</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Scan Retur</span><span>List Retur</span><span>Return status</span><span>Product condition</span>
+        <span>Damage detail</span><span>Sellable qty</span><span>Dashboard Rekonsiliasi</span><span>Upload Data Resi</span>
+        <span>Anomali Gudang</span><span>Anomali Admin Resi</span><span>Riwayat Upload</span>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-briefcase"></i> Business Operations</h2>
+      <p>The system connects warehouse processes with purchasing, packing, reseller, and product pricing needs:</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Toko Pengirim</span><span>PO ke Supplier</span><span>Pengajuan Packing</span>
+        <span>Persetujuan Tempo</span><span>Portal Reseller</span><span>Harga &amp; HPP</span>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-layer-group"></i> Main Modules</h2>
+      <div class="modmap">
+        <div class="mg"><h3>Gudang</h3><div class="pcard-tags"><span>Dashboard</span><span>Produk</span><span>Inventori</span><span>Stock Opname</span><span>Pengajuan Stok</span><span>Transfer Gudang</span><span>Barang Masuk</span><span>Barang Keluar</span><span>Gudang &amp; Lokasi</span><span>Mutasi Stok</span><span>Laporan Persediaan</span></div></div>
+        <div class="mg"><h3>Scan Operasional</h3><div class="pcard-tags"><span>Scan In</span><span>Scan Out</span><span>List Scan</span><span>Cari Resi</span></div></div>
+        <div class="mg"><h3>Monitoring</h3><div class="pcard-tags"><span>Dashboard Rekonsiliasi</span><span>Upload Data Resi</span><span>Anomali Gudang</span><span>Anomali Admin Resi</span><span>Riwayat Upload</span></div></div>
+        <div class="mg"><h3>Return &amp; Claim</h3><div class="pcard-tags"><span>Scan Retur</span><span>List Retur</span><span>Klaim</span></div></div>
+        <div class="mg"><h3>Bisnis</h3><div class="pcard-tags"><span>Toko Pengirim</span><span>PO ke Supplier</span><span>Pengajuan Packing</span><span>Persetujuan Tempo</span><span>Portal Reseller</span><span>Harga &amp; HPP</span></div></div>
+        <div class="mg"><h3>Pelaporan &amp; Master</h3><div class="pcard-tags"><span>Laporan</span><span>Audit Log</span><span>Master Packer</span></div></div>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-sitemap"></i> Technical Architecture</h2>
+      <div class="cs-flow" style="margin-bottom:18px">
+        <span class="step">Frontend</span><span class="arrow">→</span>
+        <span class="step">Backend / API</span><span class="arrow">→</span>
+        <span class="step">Business Logic</span><span class="arrow">→</span>
+        <span class="step">Database</span><span class="arrow">→</span>
+        <span class="step">Operational Services</span>
+      </div>
+      <div class="cs-arch">
+        <div><span class="cs-arch-k">Frontend</span><span class="cs-arch-v">Vue 3 · TypeScript · Vite · Pinia · Tailwind CSS</span></div>
+        <div><span class="cs-arch-k">Backend / API</span><span class="cs-arch-v">Go · Goravel</span></div>
+        <div><span class="cs-arch-k">Database</span><span class="cs-arch-v">MySQL</span></div>
+        <div><span class="cs-arch-k">Infrastructure</span><span class="cs-arch-v">Docker · Docker Compose · Nginx · VPS</span></div>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-user-gear"></i> My Role</h2>
+      <p><strong>Fullstack Developer / Software Engineer</strong> — building the platform across frontend, backend, database, and operational workflows.</p>
+      <ul style="margin:14px 0 0;padding-left:20px;color:var(--text-soft);line-height:1.9;font-size:14.5px">
+        <li>Frontend development (data tables, search, filtering, pagination, dashboard).</li>
+        <li>Backend and API development with business logic.</li>
+        <li>Database design and inventory / warehouse data structures.</li>
+        <li>Inventory, warehouse, and stock-movement workflows.</li>
+        <li>Scanning workflow (scan in / out, status, packer, quantity, timestamps).</li>
+        <li>Return workflow and reconciliation / anomaly monitoring.</li>
+        <li>Reporting and audit-log traceability.</li>
+        <li>Debugging, optimization, deployment, and production support.</li>
+      </ul>
+    </div>
+
+    <div class="cs-block" data-reveal>
+      <h2><i class="fas fa-gears"></i> Engineering Highlights</h2>
+      <p>More than a simple CRUD app — the system covers interconnected warehouse operations:</p>
+      <div class="pcard-tags" style="margin-top:14px">
+        <span>Warehouse workflow</span><span>Inventory management</span><span>Stock movement</span><span>Scanning workflow</span>
+        <span>Inbound / outbound</span><span>Return processing</span><span>Reconciliation</span><span>Anomaly monitoring</span>
+        <span>Business workflow</span><span>Reporting</span><span>Audit trail</span><span>Large data tables</span>
+        <span>Search &amp; filtering</span><span>Date-range filtering</span><span>Operational dashboard</span><span>Status tracking</span>
+      </div>
+    </div>
+
+    <div data-reveal style="margin-top:60px">
+      <div class="section-head" style="text-align:left;margin:0 0 22px;max-width:none">
+        <h2 class="section-title" style="font-size:26px"><i class="fas fa-images" style="color:var(--accent)"></i> Screens</h2>
+        <p class="section-sub" style="margin-top:6px">Screenshots have been sanitized — customer, staff, and tracking details are masked.</p>
+      </div>
+      <div class="cs-shots" data-stagger>
+        <figure><img src="/projects/duzi-wms/duzi-wms-dashboard.jpg" alt="Duzi WMS dashboard with operational KPIs and trend charts" loading="lazy" data-zoom><figcaption>Operational dashboard — KPIs &amp; stock trends</figcaption></figure>
+        <figure><img src="/projects/duzi-wms/duzi-wms-keluar.jpg" alt="Duzi WMS outbound goods (Barang Keluar) list" loading="lazy" data-zoom><figcaption>Barang Keluar — outbound goods</figcaption></figure>
+        <figure><img src="/projects/duzi-wms/duzi-wms-scan.jpg" alt="Duzi WMS scan history (List Scan)" loading="lazy" data-zoom><figcaption>List Scan — scan in/out history</figcaption></figure>
+        <figure><img src="/projects/duzi-wms/duzi-wms-retur.jpg" alt="Duzi WMS returns (List Retur)" loading="lazy" data-zoom><figcaption>List Retur — return management</figcaption></figure>
+        <figure><img src="/projects/duzi-wms/duzi-wms-login.jpg" alt="Duzi WMS login screen" loading="lazy" data-zoom><figcaption>Login</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="cs-block" data-reveal style="margin-top:60px">
+      <h2><i class="fas fa-award"></i> Outcome</h2>
+      <p>Duzi WMS centralizes warehouse workflows — inventory, stock movement, scanning, returns, reconciliation, and business operations — into one platform, with reporting and an audit log that support traceability of activity and changes across the system.</p>
+    </div>
+
+    <div class="cta-band" style="margin-top:70px">
+      <div class="cs-block" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:0">
+        <div><strong style="font-size:18px">Need a warehouse or inventory system?</strong><p style="margin-top:6px">Let's build it together.</p></div>
+        <a class="btn btn-primary" href="/contact" data-magnetic><i class="fas fa-paper-plane"></i> Start Project</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none">
+      <span>© 2026 Yogi Ilham. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/ahmad-yogi/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/yogicodee/" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://instagram.com/yogi_ilham02" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" data-totop aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<div class="lightbox" data-lightbox><img alt="Enlarged view"></div>
+
+<script src="/assets/app.js" defer></script>
+<script src="/assets/animations.js" defer></script>
+</body>
+</html>
