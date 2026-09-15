@@ -23,14 +23,6 @@
 html.page-leaving body{opacity:0;transform:translateY(-10px);
   transition:opacity .3s var(--ease),transform .3s var(--ease)}
 
-/* ---------- CURSOR RING (desktop only) ---------- */
-.cursor-ring{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;
-  border:1.5px solid var(--accent);z-index:9998;pointer-events:none;opacity:0;
-  transition:opacity .3s ease,width .25s ease,height .25s ease,margin .25s ease,background .25s ease;
-  will-change:transform}
-.cursor-ring.on{opacity:.55}
-.cursor-ring.grow{width:56px;height:56px;margin:-28px 0 0 -28px;background:var(--glow);opacity:.8}
-
 /* ---------- HERO ENTRANCE STAGGER ---------- */
 @keyframes heroUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
 @keyframes heroPop{from{opacity:0;transform:scale(.88)}to{opacity:1;transform:none}}

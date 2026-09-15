@@ -42,33 +42,6 @@
     window.addEventListener("pageshow", function () { root.classList.remove("page-leaving"); });
   })();
 
-  /* ---------- CURSOR RING ---------- */
-  (function cursorRing() {
-    if (!canHover || reduceMotion) return;
-    var ring = document.createElement("div");
-    ring.className = "cursor-ring";
-    document.body.appendChild(ring);
-    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
-    document.addEventListener("mousemove", function (e) {
-      tx = e.clientX; ty = e.clientY;
-      ring.classList.add("on");
-      if (!raf) raf = requestAnimationFrame(loop);
-    });
-    document.addEventListener("mouseleave", function () { ring.classList.remove("on"); });
-    function loop() {
-      cx += (tx - cx) * 0.22; cy += (ty - cy) * 0.22;
-      ring.style.transform = "translate(" + cx + "px," + cy + "px)";
-      if (Math.abs(tx - cx) > 0.4 || Math.abs(ty - cy) > 0.4) raf = requestAnimationFrame(loop);
-      else raf = null;
-    }
-    document.addEventListener("mouseover", function (e) {
-      if (e.target.closest && e.target.closest("a,button,.pcard,.chip,input,textarea")) ring.classList.add("grow");
-    });
-    document.addEventListener("mouseout", function (e) {
-      if (e.target.closest && e.target.closest("a,button,.pcard,.chip,input,textarea")) ring.classList.remove("grow");
-    });
-  })();
-
   /* ---------- CARD SPOTLIGHT ---------- */
   (function spotlight() {
     if (!canHover || reduceMotion) return;
